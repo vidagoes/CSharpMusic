@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CSharpMusic.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<CSharpMusicContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CSharpMusicContext") ?? throw new InvalidOperationException("Connection string 'CSharpMusicContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
