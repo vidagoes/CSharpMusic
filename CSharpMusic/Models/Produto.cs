@@ -12,5 +12,10 @@
 
         public string Tipo { get; set; }
 
+        public int MarcaId { get; set; }
+
+        public Marca? Marca { get; set; }
+
+        public string LinkImagem { get; set; }
     }
 }
